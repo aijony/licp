@@ -1,29 +1,31 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
+#include <string.h>
+#include <histedit.h>
+#include <editline/readline.h>
 
 int main(int argc, char *argv[argc])
 {
-  // Buffer
-  int size = 2048;
-  char input[size];
-  char exitMesg[] = "quit\n";
-
+  char exitMesg[] = "quit";
   /* Print Version and Exit Information */
-  puts("LiCp Version 0.0.0.0.1");
-  puts("Type \"quit\" to exit.\n");
+  printf("LiCp Version 0.0.0.0.2");
+  printf("Type \"%s\" to exit.\n", exitMesg);
 
   bool cont = true;
   while(cont){
-    printf("licp >> ");
-    fgets(input, size, stdin);
+    char* input = readline("licp >> ");
+
+    add_history(input);
+
     if(strcmp(exitMesg, input) == 0){
       cont = false;
     }
     else{
-      printf("What is %s", input);
+      printf("What is %s", "quit\n");
     }
+    free(input);
   }
   printf("Quitting\n");
   return 0;

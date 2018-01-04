@@ -1,0 +1,11 @@
+* Dependencies
+- libedit
+- histedit
+
+* Supported Distros
+- Arch based
+
+* Compilation and Execution
+#+BEGIN_SRC shell
+   cc -std=c99 -Wall repl.c -ledit -o repl && ./repl
+#+END_SRC 
