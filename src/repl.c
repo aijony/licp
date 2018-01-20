@@ -7,6 +7,8 @@
 #include<readline/history.h>
 
 #include "repl.h"
+#include "parser.h"
+#include "tree.h"
 
 int repl() {
   char exitMesg[] = "quit";
@@ -23,8 +25,14 @@ int repl() {
     if(strcmp(exitMesg, input) == 0) {
       cont = false;
     }
+    else if(strcmp("print", input) == 0) {
+      printf("printing \n");
+      printTestTree();
+      printf("\ndone\n");
+    }
     else {
-      printf("What is %s \n", input);
+      symbolLoop(input);
+      printf("\n");
     }
     free(input);
   }
