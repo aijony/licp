@@ -3,30 +3,31 @@
 #include <stdlib.h>
 
 #include <string.h>
-#include <histedit.h>
-#include <editline/readline.h>
+#include<readline/readline.h>
+#include<readline/history.h>
 
-int main(int argc, char *argv[argc])
-{
+#include "repl.h"
+
+int repl() {
   char exitMesg[] = "quit";
   /* Print Version and Exit Information */
-  printf("LiCp Version 0.0.0.0.2");
+  printf("LiCp Version 0.0.3\n");
   printf("Type \"%s\" to exit.\n", exitMesg);
 
   bool cont = true;
-  while(cont){
+  while(cont) {
     char* input = readline("licp >> ");
 
     add_history(input);
 
-    if(strcmp(exitMesg, input) == 0){
+    if(strcmp(exitMesg, input) == 0) {
       cont = false;
     }
-    else{
-      printf("What is %s", "quit\n");
+    else {
+      printf("What is %s \n", input);
     }
     free(input);
   }
-  printf("Quitting\n");
+  printf("Goodbye :_)\n");
   return 0;
 }

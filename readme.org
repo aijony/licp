@@ -2,10 +2,10 @@
 - libedit
 - histedit
 
-* Supported Distros
-- Arch based
-
-* Compilation and Execution
+* Compilation
 #+BEGIN_SRC shell
-   cc -std=c99 -Wall repl.c -ledit -o repl && ./repl
+  cd build
+  cmake ..
+  make
 #+END_SRC 
+
