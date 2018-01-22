@@ -13,7 +13,7 @@
 int repl() {
   char exitMesg[] = "quit";
   /* Print Version and Exit Information */
-  printf("LiCp Version 0.0.3\n");
+  printf("LiCp Version 0.0.5\n");
   printf("Type \"%s\" to exit.\n", exitMesg);
 
   bool cont = true;
