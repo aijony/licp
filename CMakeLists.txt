@@ -19,12 +19,15 @@ file(GLOB HEADER_FILES "${PATH_INCLUDE}/*.h")
 include_directories(${PATH_INCLUDE})
 
 add_library(${SOURCE_NAME} "${SOURCES_LIB}")
+target_link_libraries(${SOURCE_NAME} readline m)
 
 enable_testing()
 
 set(tests
   "vector_test"
   "concat_test"
+  "parser_test"
+  "tree_test"
   )
 
 list(LENGTH tests temp_len)
@@ -39,4 +42,4 @@ endforeach()
 
 
 add_executable(${PROJECT_NAME} ${PATH_SOURCE}/main.c)
-target_link_libraries(${PROJECT_NAME} ${SOURCE_NAME} readline)
+target_link_libraries(${PROJECT_NAME} ${SOURCE_NAME} readline m)

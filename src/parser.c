@@ -6,11 +6,13 @@
 #include "vector.h"
 #include "concat.h"
 
-struct node root = {'(', NULL, NULL};
+struct node root = {"(", NULL, NULL};
 struct node *lastNode = &root;
 
 int symbolLoop(char* input) {
 
+  struct vector vecSym = fragmentSymbols(input);
+  
   while(*input) {
     char currChar = *input++;
     analyzeSymbol(currChar);
@@ -19,18 +21,6 @@ int symbolLoop(char* input) {
 }
 
 void analyzeSymbol(char input) {
-
-  struct node* nextNode = newNode(input);
-  if(input == '+') {
-    lastNode->right = nextNode;
-  }
-  else if(input == '~') {
-    printTree(&root);
-  }
-  else {
-    lastNode->left = nextNode;
-  }
-  lastNode = nextNode;
 }
 
 struct vector fragmentSymbols(char* input) {

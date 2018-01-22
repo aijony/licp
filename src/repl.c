@@ -27,7 +27,7 @@ int repl() {
     }
     else if(strcmp("print", input) == 0) {
       printf("printing \n");
-      printTestTree();
+      printf(printTestTree());
       printf("\ndone\n");
     }
     else {
