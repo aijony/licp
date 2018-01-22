@@ -1,11 +1,12 @@
-* Dependencies
-- libedit
-- histedit
 
+* Introduction
+This project is a WIP.
+* Dependencies
+- readline
+- m
 * Compilation
 #+BEGIN_SRC shell
-  cd build
-  cmake ..
-  make
+  mkdir build
+  ./compile.sh
 #+END_SRC 
 
